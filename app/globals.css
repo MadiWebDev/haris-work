@@ -24,3 +24,47 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ── Showcase — design tokens ─────────────────────────────────────────────── */
+@theme inline {
+  --showcase-bg: #0d0d14;
+  --color-core: #6366f1;
+  --color-admin: #06b6d4;
+  --color-reports: #10b981;
+  --color-mobile: #f59e0b;
+}
+
+/* Smooth anchor scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Glassmorphism card utility */
+.showcase-glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+}
+
+/* Per-group glow helpers — applied via inline style on the element */
+.showcase-glow-core {
+  box-shadow: 0 0 32px 0 rgba(99, 102, 241, 0.25);
+}
+.showcase-glow-admin {
+  box-shadow: 0 0 32px 0 rgba(6, 182, 212, 0.25);
+}
+.showcase-glow-reports {
+  box-shadow: 0 0 32px 0 rgba(16, 185, 129, 0.25);
+}
+.showcase-glow-mobile {
+  box-shadow: 0 0 32px 0 rgba(245, 158, 11, 0.25);
+}
+
+/* Showcase page background */
+.showcase-page {
+  background-color: var(--showcase-bg);
+  min-height: 100vh;
+  color: #ededed;
+}

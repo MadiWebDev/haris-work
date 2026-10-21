@@ -1,0 +1,30 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Create the data layer and pure-UI components that have no Three.js dependency: data/showcase.ts (typed data file), ScrollProgress.tsx, GroupNav.tsx, FeatureCard.tsx, GroupSection.tsx, ReportCard.tsx, WebGLFallback.tsx, and the CSS additions to globals.css. These components only use Framer Motion and next/image — no Three.js — so they are the safe foundation everything else imports from.",
+  "status": "completed",
+  "steps": [
+    "Create d:\\My-Projects\\NEXT\\hariswork\\data\\showcase.ts. Define the ShowcaseItem type (id, title, description, images, reportUrl, tags, group). Define GROUP_META mapping group keys to label/accent color hex/intro text. Populate showcaseItems array with all 4 groups: core (2 screenshots), admin (7 screenshots), reports (7 screenshots + Report.pdf + MineConnect_Full_RED .pptx), mobile (empty array placeholder). Export BLUR_DATA_URL constant = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=='.",
+    "Append showcase CSS variables to d:\\My-Projects\\NEXT\\hariswork\\app\\globals.css under a new @theme inline block. Add: --showcase-bg (#0d0d14), --color-core (#6366f1), --color-admin (#06b6d4), --color-reports (#10b981), --color-mobile (#f59e0b). Add utility classes: .showcase-glass (backdrop-blur glassmorphism card), .showcase-glow-* per group. Add scroll-behavior: smooth to html. Preserve all existing content — append only.",
+    "Create d:\\My-Projects\\NEXT\\hariswork\\components\\showcase\\ScrollProgress.tsx. 'use client'. Uses framer-motion useScroll + useSpring + motion.div. A fixed top-0 left-0 h-1 w-full bar. Color: linear-gradient from --color-core to --color-reports. Typed props: none. Respects prefers-reduced-motion (skip animation if reduced motion, show static bar).",
+    "Create d:\\My-Projects\\NEXT\\hariswork\\components\\showcase\\GroupNav.tsx. 'use client'. Sticky nav bar listing the 4 groups (A/B/C/D). Uses framer-motion AnimatePresence + layoutId='group-indicator' for the animated active pill. Accepts props: activeGroup: string, onGroupClick: (id: string) => void. Uses GROUP_META from data/showcase.ts for labels and accent colors. Accent color via inline style (Tailwind v4 dynamic color rule). Touch targets min 44px.",
+    "Create d:\\My-Projects\\NEXT\\hariswork\\components\\showcase\\WebGLFallback.tsx. Simple 'use client' component that renders a static grid of next/image thumbnails when WebGL is unavailable. Props: items: ShowcaseItem[]. Detects WebGL via useEffect (create a canvas, getContext('webgl')). Exports a useWebGL() hook and the WebGLFallback component.",
+    "Create d:\\My-Projects\\NEXT\\hariswork\\components\\showcase\\FeatureCard.tsx. 'use client'. Props: item: ShowcaseItem; accentColor: string; index: number. Uses motion.div with whileInView (opacity 0→1, y 40→0), once: true, viewport={{ margin: '-80px' }}, staggered delay via index. Device-frame mockup: browser chrome bar (3 colored dots) above the image. Image: next/image with fill + sizes + placeholder='blur' + blurDataURL=BLUR_DATA_URL. 3D tilt effect: useMotionValue(0) for rotateX/rotateY, onMouseMove computes tilt from event.currentTarget.getBoundingClientRect(), onMouseLeave resets to 0, both animated via useSpring. Alt direction per index (even: x=-40, odd: x=+40). Hover glow via boxShadow motion value. Tap scale 0.97 on mobile. Accessible: aria-label on the card container. 'View Report' button when item.reportUrl exists: opens in new tab, aria-label='Open report for {item.title}'.",
+    "Create d:\\My-Projects\\NEXT\\hariswork\\components\\showcase\\GroupSection.tsx. 'use client'. Props: group: ShowcaseItem['group']; items: ShowcaseItem[]. Renders: section with id={group} for scroll-spy, animated heading (text reveal: overflow-hidden + y: 60→0 on whileInView), short intro from GROUP_META, accent underline bar. Maps items to FeatureCard with staggerChildren via motion.div variants. Accent color from GROUP_META[group].accent applied via inline style.",
+    "Create d:\\My-Projects\\NEXT\\hariswork\\components\\showcase\\ReportCard.tsx. 'use client'. Props: title: string; description: string; fileUrl: string; fileType: 'pdf' | 'pptx'. Animated card: motion.div whileInView y:40→0, once:true. File icon (SVG inline, no external dependency). Two buttons: 'Open' (target='_blank') and 'Download' (download attribute). Glassmorphism style. Accent color: --color-reports (#10b981)."
+  ],
+  "acceptance_criteria": [
+    "data/showcase.ts compiles with no TypeScript errors (strict mode)",
+    "All 17 screenshots are referenced in showcaseItems with correct /Screenshot ... paths",
+    "Report.pdf and MineConnect_Full_RED .pptx are referenced in the reports group",
+    "globals.css additions are appended after existing content with no duplicate @import",
+    "ScrollProgress, GroupNav, WebGLFallback, FeatureCard, GroupSection, ReportCard all compile",
+    "No browser APIs called at module level — all window/document access inside useEffect or event handlers",
+    "`npx next build` passes with exit 0 after this FEAT (even before /showcase page exists, the components are valid modules)"
+  ],
+  "verification": [
+    "cd d:\\My-Projects\\NEXT\\hariswork && npx next build -- build must complete with exit 0 and TypeScript reports 0 errors"
+  ],
+  "blocked_reason": null,
+  "findings": "Build completed successfully: compiled in 1414ms, TypeScript check passed in 5.3s, 0 errors. Also added images.qualities: [75] to next.config.ts (required by Next.js 16 per plan step 1). Also added ReportDoc type and reportDocs array to data/showcase.ts to support the Reports section document cards. The shell tool reports exit -1 for all commands (including echo) — this is a tool artifact on Windows cmd; actual build success was confirmed by reading the captured output file."
+}
