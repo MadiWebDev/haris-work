@@ -51,9 +51,9 @@ export const GROUP_META: Record<ShowcaseGroup, GroupMeta> = {
   },
 };
 
-/** 1×1 grey pixel used as blur placeholder for all dynamic images. */
+/** 1×1 dark pixel (#0d0d14) used as blur placeholder for all dynamic images. */
 export const BLUR_DATA_URL =
-  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==';
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQI12NgAAIABQAABjE+ibYAAAAASUVORK5CYII=';
 
 export const showcaseItems: ShowcaseItem[] = [
   // ── Group A — Core Features ──────────────────────────────────────────────

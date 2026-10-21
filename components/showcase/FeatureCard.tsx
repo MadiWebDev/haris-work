@@ -181,6 +181,7 @@ export default function FeatureCard({ item, accentColor, index }: FeatureCardPro
             className="object-cover"
             placeholder="blur"
             blurDataURL={BLUR_DATA_URL}
+            style={{ transition: 'opacity 0.4s ease' }}
           />
         )}
 

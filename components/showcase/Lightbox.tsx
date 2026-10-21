@@ -239,6 +239,7 @@ export default function Lightbox({
                 className="object-contain"
                 placeholder="blur"
                 blurDataURL={BLUR_DATA_URL}
+                style={{ transition: 'opacity 0.4s ease' }}
               />
             </motion.div>
           </AnimatePresence>
