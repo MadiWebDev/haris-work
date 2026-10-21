@@ -1,0 +1,2 @@
+fatal: /showcase: '/showcase' is outside repository at 'D:/My-Projects/NEXT/hariswork'
+GITDONE_0 
