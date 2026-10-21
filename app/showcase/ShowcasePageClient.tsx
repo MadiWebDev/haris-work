@@ -74,7 +74,7 @@ interface ShowcasePageClientProps {
 
 // ─── Scroll-spy section IDs ───────────────────────────────────────────────────
 
-const SECTION_IDS: ShowcaseGroup[] = ['admin', 'reports', 'mobile'];
+const SECTION_IDS: ShowcaseGroup[] = ['admin', 'reports'];
 
 // ─── ShowcasePageClient ───────────────────────────────────────────────────────
 

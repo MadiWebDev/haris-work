@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 // ─── Group items by group key ─────────────────────────────────────────────────
 
-const GROUPS: ShowcaseGroup[] = ['admin', 'reports', 'mobile'];
+const GROUPS: ShowcaseGroup[] = ['admin', 'reports'];
 
 function groupItems(): Record<ShowcaseGroup, typeof showcaseItems> {
   const grouped = Object.fromEntries(
