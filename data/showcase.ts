@@ -60,5 +60,5 @@ export type ReportDoc = {
 
 export const reportDocs: ReportDoc[] = [
   { id: 'doc-001', title: 'MineConnect Full Report', description: 'Comprehensive project report covering system architecture, feature set, and deployment outcomes.', fileUrl: '/Report.pdf', fileType: 'pdf' },
-  { id: 'doc-002', title: 'MineConnect Presentation', description: 'Slide deck used for stakeholder presentations.', fileUrl: '/MineConnect_Full_RED .pptx', fileType: 'pptx' },
+  { id: 'doc-002', title: 'MineConnect Presentation', description: 'Slide deck used for stakeholder presentations.', fileUrl: '/MineConnect_Full_RED.pptx', fileType: 'pptx' },
 ];
