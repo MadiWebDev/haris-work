@@ -10,6 +10,7 @@ import {
 } from 'framer-motion';
 import type { ShowcaseItem } from '@/data/showcase';
 import { BLUR_DATA_URL } from '@/data/showcase';
+import { useShowcaseContext } from '@/app/showcase/ShowcaseContext';
 
 interface FeatureCardProps {
   item: ShowcaseItem;
@@ -30,6 +31,7 @@ const SPRING_CONFIG = { stiffness: 200, damping: 20 };
  */
 export default function FeatureCard({ item, accentColor, index }: FeatureCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
+  const { openLightbox } = useShowcaseContext();
 
   // 3D tilt motion values
   const rotateX = useMotionValue<number>(0);
@@ -145,14 +147,29 @@ export default function FeatureCard({ item, accentColor, index }: FeatureCardPro
         />
       </div>
 
-      {/* Screenshot */}
+      {/* Screenshot — click opens the lightbox */}
       <div
+        role="button"
+        tabIndex={item.images[0] ? 0 : -1}
+        aria-label={`View ${item.title} in lightbox`}
+        onClick={() => {
+          if (item.images.length > 0) {
+            openLightbox(item.images, 0, item.title);
+          }
+        }}
+        onKeyDown={(e) => {
+          if ((e.key === 'Enter' || e.key === ' ') && item.images.length > 0) {
+            e.preventDefault();
+            openLightbox(item.images, 0, item.title);
+          }
+        }}
         style={{
           position: 'relative',
           width: '100%',
           aspectRatio: '16/9',
           flexShrink: 0,
           background: 'rgba(0,0,0,0.2)',
+          cursor: item.images.length > 0 ? 'zoom-in' : 'default',
         }}
       >
         {item.images[0] && (

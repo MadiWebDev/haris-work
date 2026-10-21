@@ -1,0 +1,7 @@
+{
+  "task_id": "task-showcase",
+  "task_description": "Build a complete animated Project Showcase page at /showcase for HarisPortfolio Next.js 16 app. Includes: typed data file, ScrollProgress, GroupNav, Hero (Three.js), FeatureCard, GroupSection, Gallery3D (Three.js), Lightbox, ReportCard, WebGLFallback components, and the /showcase page route with full Framer Motion animations, mobile-responsive layout, and accessibility.",
+  "status": "completed",
+  "feature_order": ["FEAT-001", "FEAT-002", "FEAT-003"],
+  "blocked_reason": null
+}
