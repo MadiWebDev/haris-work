@@ -60,7 +60,7 @@ export default function FooterCTA() {
         >
           {/* Primary CTA */}
           <motion.a
-            href="mailto:m.haris3098.com"
+            href="mailto:m.haris3098@gmail.com"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             aria-label="Get in touch via email"
