@@ -74,7 +74,7 @@ interface ShowcasePageClientProps {
 
 // ─── Scroll-spy section IDs ───────────────────────────────────────────────────
 
-const SECTION_IDS: ShowcaseGroup[] = ['core', 'admin', 'reports', 'mobile'];
+const SECTION_IDS: ShowcaseGroup[] = ['admin', 'reports', 'mobile'];
 
 // ─── ShowcasePageClient ───────────────────────────────────────────────────────
 
@@ -114,7 +114,7 @@ export default function ShowcasePageClient({
   }, []);
 
   // ── Active group scroll-spy ────────────────────────────────────────────────
-  const [activeGroup, setActiveGroup] = useState<ShowcaseGroup>('core');
+  const [activeGroup, setActiveGroup] = useState<ShowcaseGroup>('admin');
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];

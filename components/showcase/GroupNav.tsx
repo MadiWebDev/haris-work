@@ -9,7 +9,7 @@ interface GroupNavProps {
   onGroupClick: (id: ShowcaseGroup) => void;
 }
 
-const GROUPS: ShowcaseGroup[] = ['core', 'admin', 'reports', 'mobile'];
+const GROUPS: ShowcaseGroup[] = ['admin', 'reports', 'mobile'];
 
 /**
  * Sticky in-page navigation for the 4 showcase groups.
